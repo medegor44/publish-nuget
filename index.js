@@ -154,11 +154,11 @@ class PackAndPublishProjectsAction {
             .map(d => d.name)
             .filter(n => n !== "EmbeddedScripts.Shared")
 
-        console.log(`dirs: ${dirs}`)
+        console.log(`##[warning]dirs: ${dirs}`)
 
         for (const dir of dirs) {
             const fullPath = `${this.projectsDir}/${dir}`
-            console.log(`fulle path is ${fullPath}`)
+            console.log(`##[warning]fulle path is ${fullPath}`)
 
             const action = new PackAndPublishAction();
             action.projectFile = `${fullPath}/${dir}.csproj` //PROJECT_FILE_PATH
