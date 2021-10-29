@@ -4,7 +4,8 @@ const os = require("os"),
     https = require("https"),
     spawnSync = require("child_process").spawnSync
 
-class Action {
+
+class PackAndPublishAction {
     constructor() {
         this.projectFile = process.env.INPUT_PROJECT_FILE_PATH
         this.packageName = process.env.INPUT_PACKAGE_NAME || process.env.PACKAGE_NAME
@@ -142,4 +143,27 @@ class Action {
     }
 }
 
-new Action().run()
+class PackAndPublishProjectsAction {
+    constructor() {
+        this.projectsDir =  process.env.INPUT_PROJECTS_DIR || process.env.PROJECTS_DIR
+    }
+
+    run() {
+        const dirs = fs.readdirSync(this.projectsDir, { withFileTypes: true })
+            .filter(d => d.isDirectory())
+            .map(d => d.name)
+            .filter(n => n !== "EmbeddedScripts.Shared")
+
+        for (const dir of dirs) {
+            const fullPath = `${this.projectsDir}/${dir}`
+
+            const action = new PackAndPublishAction();
+            action.projectFile = `${fullPath}.csproj` //PROJECT_FILE_PATH
+            action.packageName = dir //PACKAGE_NAME
+
+            action.run()
+        }
+    }
+}
+
+new PackAndPublishProjectsAction().run()
