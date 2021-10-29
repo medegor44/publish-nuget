@@ -116,6 +116,7 @@ class PackAndPublishAction {
     }
 
     run() {
+        console.log(`project file is ${this.projectFile}`)
         if (!this.projectFile || !fs.existsSync(this.projectFile))
             this._printErrorAndExit("project file not found")
 
