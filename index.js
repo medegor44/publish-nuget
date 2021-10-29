@@ -4,7 +4,6 @@ const os = require("os"),
     https = require("https"),
     spawnSync = require("child_process").spawnSync
 
-
 class PackAndPublishAction {
     constructor() {
         this.projectFile = ""
@@ -155,11 +154,14 @@ class PackAndPublishProjectsAction {
             .map(d => d.name)
             .filter(n => n !== "EmbeddedScripts.Shared")
 
+        console.log(`dirs: ${dirs}`)
+
         for (const dir of dirs) {
             const fullPath = `${this.projectsDir}/${dir}`
+            console.log(`fulle path is ${fullPath}`)
 
             const action = new PackAndPublishAction();
-            action.projectFile = `${fullPath}.csproj` //PROJECT_FILE_PATH
+            action.projectFile = `${fullPath}/${dir}.csproj` //PROJECT_FILE_PATH
             action.packageName = dir //PACKAGE_NAME
 
             action.run()
