@@ -166,7 +166,7 @@ class PackAndPublishProjectsAction {
 
             console.log(`full path is ${action.projectFile}`)
 
-            console.log(fs.existsSync(fullPath))
+            console.log(fs.existsSync(action.projectFile))
 
             action.packageName = dir //PACKAGE_NAME
 
