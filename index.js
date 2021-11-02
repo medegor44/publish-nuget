@@ -158,12 +158,16 @@ class PackAndPublishProjectsAction {
 
         for (const dir of dirs) {
             const fullPath = `${this.projectsDir}/${dir}`
-            console.log(`full path is ${fullPath}`)
 
             console.log(fs.readdirSync(fullPath, {withFileTypes: true}))
 
             const action = new PackAndPublishAction();
             action.projectFile = `${fullPath}/${dir}.csproj` //PROJECT_FILE_PATH
+
+            console.log(`full path is ${action.projectFile}`)
+
+            console.log(fs.existsSync(fullPath))
+
             action.packageName = dir //PACKAGE_NAME
 
             action.run()
