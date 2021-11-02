@@ -1,0 +1,23 @@
+{
+  "name": "publish-nuget",
+  "version": "1.0.0",
+  "description": "GitHub action to build, pack & publish nuget packages automatically when a project version is updated",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medegor44/publish-nuget.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/medegor44/publish-nuget/issues"
+  },
+  "homepage": "https://github.com/medegor44/publish-nuget#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0"
+  }
+}
