@@ -162,7 +162,7 @@ class PackAndPublishProjectsAction {
             console.log(fs.readdirSync(fullPath, {withFileTypes: true}))
 
             const action = new PackAndPublishAction();
-            action.projectFile = `${fullPath}/${dir}.csproj` //PROJECT_FILE_PATH
+            action.projectFile = `${fullPath}/${dir}` //PROJECT_FILE_PATH
 
             console.log(`full path is ${action.projectFile}`)
 
