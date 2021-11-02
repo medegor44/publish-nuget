@@ -163,7 +163,7 @@ class PackAndPublishProjectsAction {
 
             const action = new PackAndPublishAction();
             action.projectFile = `${fullPath}/` //PROJECT_FILE_PATH
-            action.versionFile = `${fullPath}/` //PROJECT_FILE_PATH
+            action.versionFile = `${fullPath}/${dir}.csproj`
 
             console.log(`full path is ${action.projectFile}`)
 
