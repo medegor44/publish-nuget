@@ -160,6 +160,8 @@ class PackAndPublishProjectsAction {
             const fullPath = `${this.projectsDir}/${dir}`
             console.log(`full path is ${fullPath}`)
 
+            console.log(fs.readdirSync(fullPath, {withFileTypes: true}))
+
             const action = new PackAndPublishAction();
             action.projectFile = `${fullPath}/${dir}.csproj` //PROJECT_FILE_PATH
             action.packageName = dir //PACKAGE_NAME
@@ -168,5 +170,7 @@ class PackAndPublishProjectsAction {
         }
     }
 }
+//src/HelloWorldLibrary/HelloWorldLibrary.csproj
+//HelloWroldLibrary/src/HelloWorldLibrary/HelloWroldLibrary.csproj
 
 new PackAndPublishProjectsAction().run()
